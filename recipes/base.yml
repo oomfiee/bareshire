@@ -28,6 +28,9 @@ modules:
       - curl -fLs --create-dirs https://raw.githubusercontent.com/M0Rf30/android-udev-rules/refs/heads/main/51-android.rules -o /usr/lib/udev/rules.d/51-android.rules
       - echo -e "\033[90mAdding adbusers group to sysusers.d\033[0m"
       - echo "g adbusers - -" > /usr/lib/sysusers.d/android-udev.conf
+      - echo -e "\033[90mInstalling just manually until ISO issue is fixed (not done in Ublue)\033[0m"
+      - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/casey/just/releases/latest)) && curl -fLs --create-dirs https://github.com/casey/just/releases/download/${VER}/just-${VER}-x86_64-unknown-linux-musl.tar.gz -o /tmp/just-x86_64-unknown-linux-musl.tar.gz"
+      - "mkdir -p /tmp/just && tar -xzf /tmp/just-x86_64-unknown-linux-musl.tar.gz -C /tmp/just/"
       ## flatpak updater
       # - echo -e "\033[90mCopying flatpak updater\033[0m"
       # - cp /tmp/ublue-config/packages-main/packages/ublue-os-update-services/src/usr/lib/systemd/system/flatpak-system-update.timer /usr/lib/systemd/system/flatpak-system-update.timer
@@ -67,9 +70,6 @@ modules:
   # Remove chsh & install oversteer-udev rules, as I don't want to rely on potentially outdated RPM
   # The operations below cannot be covered in rpm-ostree module, so it's used as a script
   - type: dnf
-    repos:
-      nonfree: negativo17
-    # Replace Fedora packages with Negativos (Mesa & HEIF)
     install:
       packages:
         - libopenjph # Manually install dependency for `libheif`, as Negativo upstreamed it
@@ -77,36 +77,9 @@ modules:
           packages:
             - libheif
 
-  - type: script
-    snippets:
-      # Remove chsh
-      - echo -e "\033[90mRemoving chsh\033[0m"
-      - rm /usr/bin/chsh
-      # Install oversteer udev rules
-      - echo -e "\033[90mDownloading Oversteer udev zip file\033[0m"
-      - curl -fLs --create-dirs  https://github.com/berarma/oversteer/archive/refs/heads/master.zip -o /tmp/oversteer-udev/master.zip
-      - echo -e "\033[90mUnzipping Oversteer udev zip file\033[0m"
-      - unzip -q /tmp/oversteer-udev/master.zip -d /tmp/oversteer-udev/
-      - rm /tmp/oversteer-udev/master.zip
-      - echo -e "\033[90mCopying Oversteer udev rules\033[0m"
-      - cp /tmp/oversteer-udev/oversteer-master/data/udev/*.rules /usr/lib/udev/rules.d/
-      - rm -r /tmp/oversteer-udev/
-      # Remove avif thumbnailer, as HEIF thumbnailer already covers it (not done in Ublue)
-      - echo -e "\033[90mRemove avif thumbnailer, as HEIF thumbnailer already covers it (not done in Ublue)\033[0m"
-      - rm /usr/share/thumbnailers/avif.thumbnailer
-      # Install just manually until ISO problem is solved
-      - echo -e "\033[90mInstalling just manually until ISO issue is fixed (not done in Ublue)\033[0m"
-      - "VER=$(basename $(curl -Ls -o /dev/null -w %{url_effective} https://github.com/casey/just/releases/latest)) && curl -fLs --create-dirs https://github.com/casey/just/releases/download/${VER}/just-${VER}-x86_64-unknown-linux-musl.tar.gz -o /tmp/just-x86_64-unknown-linux-musl.tar.gz"
-      - "mkdir -p /tmp/just && tar -xzf /tmp/just-x86_64-unknown-linux-musl.tar.gz -C /tmp/just/"
-      - cp /tmp/just/just /usr/bin/just && chmod 0755 /usr/bin/just
-      - cp /tmp/just/completions/just.bash /usr/share/bash-completion/completions/just
-      - rm /tmp/just-x86_64-unknown-linux-musl.tar.gz
-      - rm -r /tmp/just/
-
   - type: dnf
     remove:
       packages:
-        - gnome-software-rpm-ostree
         - default-fonts-cjk-sans
         - google-noto-sans-cjk-vf-fonts
         - plasma-welcome-fedora
@@ -143,7 +116,7 @@ modules:
             # Codecs
             - heif-pixbuf-loader
             # Audio stuff (Negativo)
-            - pipewire-libs-extra
+            #- pipewire-libs-extra
     replace:
       - from-repo: fedora-multimedia
         packages:

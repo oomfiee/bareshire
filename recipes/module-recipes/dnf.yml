@@ -17,7 +17,7 @@ modules:
     install:
       packages:
         - fish
-        - fontconfig-font-replacements
+        #- fontconfig-font-replacements
         - trivalent
         - trivalent-subresource-filter
     # Example of replacing older packages like kernel in case of regressions
