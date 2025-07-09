@@ -1,6 +1,6 @@
 type: script
 scripts:
-  - trivalent-patches.sh
+  #- trivalent-patches.sh
   - prefer-bootc-over-rpm-ostree.sh
   - disable-layering.sh
 snippets:
