@@ -7,10 +7,9 @@ on:
 
 env:
   ARCH: x86_64 # Set your architecture
-  IMAGE_NAME: bareshire # Set your image name
+  IMAGE_NAME: bareshire-nvidia # Set your image name
   IMAGE_REPO: bareshire # Set your image repository
   IMAGE_TAG: latest # Set your image tag
-  VERSION: 0.1 # Set your version
   VARIANT: kinote # Set your variant
 
 jobs:
@@ -29,9 +28,8 @@ jobs:
           image_name: ${{ env.IMAGE_NAME }}
           image_repo: ${{ env.IMAGE_REPO }}
           image_tag: ${{ env.IMAGE_TAG }}
-          version: ${{ env.VERSION }}
           variant: ${{ env.VARIANT }}
-          iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.iso
+          iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}.iso
 
       - name: Upload ISO as artifact
         id: upload
