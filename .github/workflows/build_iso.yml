@@ -1,9 +1,7 @@
 name: Build ISO
 
 on:
-  push:
-    branches:
-      - main
+   workflow_dispatch: # allow manually triggering builds
 
 env:
   ARCH: x86_64 # Set your architecture
