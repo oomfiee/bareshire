@@ -1,13 +1,13 @@
 modules:
   - from-file: base.yml
-  - from-file: module-recipes/files.yml
+  #- from-file: module-recipes/files.yml
   - from-file: module-recipes/kargs.yml
   - type: files
     files:
       - source: system/kinoite
         destination: /
   - from-file: module-recipes/dnf.yml
-  - from-file: module-recipes/justfiles.yml
+  #- from-file: module-recipes/justfiles.yml
   - type: yafti
   - from-file: module-recipes/default-flatpaks.yml
   - type: gschema-overrides
