@@ -10,7 +10,7 @@ env:
   IMAGE_NAME: bareshire # Set your image name
   IMAGE_REPO: bareshire # Set your image repository
   IMAGE_TAG: latest # Set your image tag
-  VERSION: ${{ env.VERSION }} # Set your version
+  VERSION: 0.1 # Set your version
   VARIANT: kinote # Set your variant
 
 jobs:
