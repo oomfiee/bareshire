@@ -69,13 +69,6 @@ modules:
   # Add negativo repo, modify its repo priority & replace some packages like HEIF & mesa
   # Remove chsh & install oversteer-udev rules, as I don't want to rely on potentially outdated RPM
   # The operations below cannot be covered in rpm-ostree module, so it's used as a script
-  - type: dnf
-    install:
-      packages:
-        - libopenjph # Manually install dependency for `libheif`, as Negativo upstreamed it
-        - repo: fedora-multimedia
-          packages:
-            - libheif
 
   - type: dnf
     remove:
