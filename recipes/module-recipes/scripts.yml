@@ -1,0 +1,12 @@
+type: script
+scripts:
+  - trivalent-patches.sh
+  - prefer-bootc-over-rpm-ostree.sh
+  - disable-layering.sh
+snippets:
+  # Remove some redundant tmpfiles.d for fedora-third-party package
+  - |  
+    sed -i '/\/var\/lib\/fedora-third-party/d' /usr/lib/tmpfiles.d/rpm-ostree-autovar.conf
+  - "rm /usr/lib/rpm-ostree/tmpfiles.d/fedora-third-party.conf"
+  # Symlink sh to dash
+  - "ln -sf /usr/bin/dash /usr/bin/sh"

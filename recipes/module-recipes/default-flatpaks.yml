@@ -1,0 +1,18 @@
+type: default-flatpaks
+notify: true
+system:
+  repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  repo-name: flathub-system
+  repo-title: "Flathub (System)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
+  install:
+    - org.mozilla.firefox
+    - com.valvesoftware.Steam
+    - org.signal.Signal
+    - org.keepassxc.KeePassXC
+    - com.github.tchx84.Flatseal
+    - io.github.flattool.Warehouse
+    - com.github.wwmm.easyeffects
+user:
+  repo-url: https://dl.flathub.org/repo/flathub.flatpakrepo
+  repo-name: flathub-user
+  repo-title: "Flathub"

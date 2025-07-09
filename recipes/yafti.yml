@@ -1,7 +1,0 @@
-modules:
-    type: yafti
-    custom-flatpaks:
-      - Firefox: org.mozilla.firefox
-      - Steam: com.valvesoftware.Steam
-      - Signal: org.signal.Signal
-      - Keepassxc: org.keepassxc.KeePassXC

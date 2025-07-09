@@ -1,0 +1,46 @@
+modules:
+  - type: dnf
+    repos:
+      files:
+        - https://repo.secureblue.dev/secureblue.repo
+      copr:
+        - secureblue/trivalent
+    remove:
+      packages:
+        - tuned
+        - tuned-ppd
+        - firefox
+        - firefox-langpacks
+        - fedora-third-party
+        - fedora-flathub-remote
+        - fedora-workstation-repositories
+    install:
+      packages:
+        - fish
+        - fontconfig-font-replacements
+        - trivalent
+        - trivalent-subresource-filter
+    # Example of replacing older packages like kernel in case of regressions
+    #replace:
+    #- from-repo: updates-archive
+      #packages:
+        #- kernel-6.14.6
+        #- kernel-modules-6.14.6
+        #- kernel-modules-extra-6.14.6
+        #- kernel-tools-6.14.6
+ 
+  # Workaround needed dependency faad2 for dr14_t.meter package
+  - type: dnf
+    repos:
+      nonfree: rpmfusion
+    install:
+      packages:
+        - faad2
+  - type: dnf
+    repos:
+      nonfree: negativo17
+      copr:
+        - sassam/dr14_tmeter
+    install:
+      packages:
+        - dr14_t.meter
