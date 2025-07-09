@@ -76,21 +76,6 @@ modules:
         - repo: fedora-multimedia
           packages:
             - libheif
-    replace:
-      - from-repo: fedora-multimedia
-        packages:
-          - libva
-          - libva-intel-media-driver
-          - intel-gmmlib
-          - intel-vpl-gpu-rt
-          - intel-mediasdk
-          - mesa-dri-drivers
-          - mesa-filesystem
-          - mesa-libEGL
-          - mesa-libGL
-          - mesa-libgbm
-          - mesa-va-drivers
-          - mesa-vulkan-drivers
 
   - type: script
     snippets:
