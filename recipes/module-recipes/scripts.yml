@@ -3,6 +3,8 @@ scripts:
   #- trivalent-patches.sh
   - prefer-bootc-over-rpm-ostree.sh
   - disable-layering.sh
+  - installproprietarypackages.sh
+  #- removeunusedrepos.sh
 snippets:
   # Remove some redundant tmpfiles.d for fedora-third-party package
   - |  

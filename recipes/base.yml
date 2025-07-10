@@ -1,7 +1,5 @@
 modules:
   - type: script
-      - installproprietarypackages.sh
-      - removeunusedrepos.sh
     snippets:
       # Download Universal Blue packages config zip
       - echo -e "\033[90mDownloading Universal Blue packages config zip file\033[0m"
