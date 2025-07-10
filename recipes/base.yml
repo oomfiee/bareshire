@@ -62,11 +62,11 @@ modules:
         - google-noto-sans-cjk-fonts
         - heif-pixbuf-loader
         - ffmpeg
-        - ffmpeg-libs
+        # - ffmpeg-libs
         - ffmpegthumbnailer
-        - pipewire-libs-extra
-        - libfdk-aac
-        - gstreamer1-plugins-ugly
+        # - pipewire-libs-extra
+        # - libfdk-aac
+        # - gstreamer1-plugins-ugly
         # Audio stuff (Fedora)
         - alsa-firmware
         - ffmpegthumbnailer
