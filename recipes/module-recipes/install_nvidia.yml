@@ -14,10 +14,6 @@ modules:
   - type: script
     scripts:
       - installnvidiakmod.sh
-      - installnvidiapackages.sh
-      - removeunusedrepos.sh
-      - setearlyloading.sh
-      - setdrmvariables.sh
   - type: files
     files:
       - source: system/nvidia

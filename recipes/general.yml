@@ -12,5 +12,4 @@ modules:
   - from-file: module-recipes/default-flatpaks.yml
   #- type: gschema-overrides
   - from-file: module-recipes/scripts.yml
-  - type: initramfs
   - type: signing

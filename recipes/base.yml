@@ -87,6 +87,14 @@ modules:
         - libratbag-ratbagd
         - zstd
         - wireguard-tools
+        - openssl
+        - patch
+        - p7zip
+        - distrobox
+        #- toolbox
+        - podman
+        - nvme-cli
+        - hdparm
 
   - type: script
     snippets:
