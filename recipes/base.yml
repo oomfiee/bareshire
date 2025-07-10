@@ -60,8 +60,8 @@ modules:
       packages:
         # Font stuff
         - google-noto-sans-cjk-fonts
-        - heif-pixbuf-loader
-        - libheif
+        #- heif-pixbuf-loader
+        #- libheif
         - ffmpeg
         # - ffmpeg-libs
         - ffmpegthumbnailer
