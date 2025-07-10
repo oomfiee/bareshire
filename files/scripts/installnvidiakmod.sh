@@ -18,7 +18,9 @@ set -oue pipefail
 KERNEL_VERSION="$(rpm -q "kernel" --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
 RELEASE="$(rpm -E '%fedora.%_arch')"
 KERNEL_MODULE_TYPE="kernel"
-KERNEL_MODULE_TYPE+="-open"
+if [[ "$IMAGE_NAME" == *"open"* ]]; then
+    KERNEL_MODULE_TYPE+="-open"
+fi
 
 curl -Lo /etc/yum.repos.d/negativo17-fedora-nvidia.repo https://negativo17.org/repos/fedora-nvidia.repo
 sed -i '0,/enabled=1/{s/enabled=1/enabled=1\npriority=90/}' /etc/yum.repos.d/negativo17-fedora-nvidia.repo

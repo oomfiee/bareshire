@@ -3,8 +3,8 @@ modules:
     repos:
       files:
         - https://repo.secureblue.dev/secureblue.repo
-      copr:
-        - secureblue/trivalent
+      #copr:
+      # - secureblue/trivalent
     remove:
       packages:
         - tuned
@@ -18,8 +18,8 @@ modules:
       packages:
         - fish
         #- fontconfig-font-replacements
-        - trivalent
-        - trivalent-subresource-filter
+        #- trivalent
+        #- trivalent-subresource-filter
     # Example of replacing older packages like kernel in case of regressions
     #replace:
     #- from-repo: updates-archive
