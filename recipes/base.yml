@@ -61,6 +61,7 @@ modules:
         # Font stuff
         - google-noto-sans-cjk-fonts
         - heif-pixbuf-loader
+        - libheif
         - ffmpeg
         # - ffmpeg-libs
         - ffmpegthumbnailer
@@ -86,33 +87,6 @@ modules:
         - libratbag-ratbagd
         - zstd
         - wireguard-tools
-        - repo: fedora-multimedia
-          packages:
-            # Codecs
-            - heif-pixbuf-loader
-            # Audio stuff (Negativo)
-            - pipewire-libs-extra
-    replace:
-      - from-repo: fedora-multimedia
-        packages:
-          - old: ffmpeg-free
-            new: ffmpeg
-          - old: libfdk-aac-free
-            new: libfdk-aac
-          - old: libavcodec-free
-            new: libavcodec
-      # Workaround OpenCL bug
-      # https://github.com/ublue-os/main/pull/692
-      - from-repo: fedora
-        packages:
-          - old: OpenCL-ICD-Loader
-            new: ocl-icd
-  - type: dnf
-    install:
-      packages:
-        - repo: fedora-multimedia
-          packages:
-            - ffmpeg-libs
 
   - type: script
     snippets:
