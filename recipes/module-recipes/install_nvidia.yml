@@ -13,8 +13,8 @@
 modules:
   - type: script
     scripts:
-      - installnvidiakmod.sh
-  - type: files
-    files:
-      - source: system/nvidia
-        destination: /
+      - nvidia.sh
+  #- type: files
+  #  files:
+  #    - source: system/nvidia
+  #      destination: /
