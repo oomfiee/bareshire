@@ -8,7 +8,7 @@ set -eoux pipefail
 # done
 
 AKMODS_FLAVOR="main"
-BASE_IMAGE_NAME="kinote"
+BASE_IMAGE_NAME="kinoite"
 
 # Fetch Common AKMODS & Kernel RPMS
 skopeo copy --retry-times 3 docker://ghcr.io/ublue-os/akmods:"${AKMODS_FLAVOR}"-"$(rpm -E %fedora)" dir:/tmp/akmods
